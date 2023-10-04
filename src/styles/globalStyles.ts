@@ -78,21 +78,7 @@ body {
 
 /* ******* */
 
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
 
-.logo span {
-  font-size: 3.2rem;
-}
-
-.logo h1 {
-  font-size: 2.4rem;
-  font-weight: 600;
-  color: #fff;
-}
 
 .search {
   justify-self: center;
@@ -121,22 +107,6 @@ body {
 .num-results {
   justify-self: end;
   font-size: 1.8rem;
-}
-
-.btn-toggle {
-  position: absolute;
-  top: 0.8rem;
-  right: 0.8rem;
-  height: 2.4rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: none;
-  background-color: var(--color-background-900);
-  color: var(--color-text);
-  font-size: 1.4rem;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 999;
 }
 
 .list {
@@ -208,9 +178,7 @@ body {
   transition: all 0.3s;
 }
 
-.btn-delete:hover {
-  background-color: var(--color-red-dark);
-}
+
 
 /* ******* */
 
@@ -295,21 +263,7 @@ body {
   gap: 2.4rem;
 }
 
-.btn-add {
-  background-color: var(--color-primary);
-  color: var(--color-text);
-  border: none;
-  border-radius: 10rem;
-  font-size: 1.4rem;
-  padding: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s;
-}
 
-.btn-add:hover {
-  background-color: var(--color-primary-light);
-}
 
 .seconds {
   background-color: var(--color-background-100);
@@ -321,26 +275,5 @@ body {
   margin-top: 2.4rem;
 }
 
-.btn-back {
-  position: absolute;
-  top: 0.6rem;
-  left: 0.6rem;
-  height: 3.2rem;
-  aspect-ratio: 1;
-  border-radius: 50%;
-  border: none;
-  /* background-color: var(--color-text); */
-  background-color: #fff;
-  color: var(--color-background-500);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
-  font-family: sans-serif;
-  font-size: 2.4rem;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 `

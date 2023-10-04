@@ -1,46 +1,5 @@
 export type Locales = "en" | "lt"
 
-export interface Movie {
-  imdbID: string
-  Title: string
-  Year: string
-  Poster: string
-  runtime?: number
-  imdbRating?: number
-  userRating?: number
-}
-
-export interface WatchedMovie extends Movie {
-  runtime: number
-  imdbRating: number
-  userRating: number
-}
-
-export type MovieProps = {
-  movies: Movie[]
-}
-
-export interface MovieDetails {
-  Title: string
-  Year: string
-  Poster: string
-  Runtime: string
-  imdbRating: string
-  Plot: string
-  Released: string
-  Actors: string
-  Director: string
-  Genre: string
-}
-
-export type SingleMovieProp = {
-  movie: Movie
-}
-
-export type WatchedMovieSummaryProps = {
-  watched: WatchedMovie[]
-}
-
 // Props for the StarRating component
 export interface StarRatingProps {
   maxRating: number // Maximum rating value

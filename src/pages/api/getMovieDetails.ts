@@ -7,7 +7,7 @@ export default async function handler(
   res: NextApiResponse
 ) {
   const API_KEY = process.env.OMDB_API_KEY
-  const selectedId = req.query.i // Here we use 'i' for IMDb ID
+  const selectedId = req.query.i
 
   if (!selectedId) {
     return res.status(400).json({ error: "Missing IMDb ID parameter" })
