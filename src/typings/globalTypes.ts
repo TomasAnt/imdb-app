@@ -1,6 +1,6 @@
 export type Locales = "en" | "lt"
 
-interface Movie {
+export interface Movie {
   imdbID: string
   Title: string
   Year: string
@@ -10,7 +10,7 @@ interface Movie {
   userRating?: number
 }
 
-interface WatchedMovie extends Movie {
+export interface WatchedMovie extends Movie {
   runtime: number
   imdbRating: number
   userRating: number
@@ -18,6 +18,19 @@ interface WatchedMovie extends Movie {
 
 export type MovieProps = {
   movies: Movie[]
+}
+
+export interface MovieDetails {
+  Title: string
+  Year: string
+  Poster: string
+  Runtime: string
+  imdbRating: string
+  Plot: string
+  Released: string
+  Actors: string
+  Director: string
+  Genre: string
 }
 
 export type SingleMovieProp = {

@@ -1,9 +1,9 @@
-import { StyledMain } from "."
+import React from "react"
 
-type MainProps = {
+interface MainProps {
   children: React.ReactNode
 }
 
 export default function Main({ children }: MainProps) {
-  return <StyledMain>{children}</StyledMain>
+  return <main className="main">{children}</main>
 }
