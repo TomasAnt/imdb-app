@@ -18,6 +18,10 @@
 │   │       └── full-star.svg
 │   ├── components
 │   │   ├── core
+│   │   │   ├── box
+│   │   │   │   ├── box.styled.ts
+│   │   │   │   ├── box.tsx
+│   │   │   │   └── index.ts
 │   │   │   ├── button
 │   │   │   │   ├── button.styled.ts
 │   │   │   │   ├── button.tsx
@@ -26,48 +30,38 @@
 │   │   │   │   ├── icon.styled.ts
 │   │   │   │   ├── icon.tsx
 │   │   │   │   └── index.ts
-│   │   │   ├── main
+│   │   │   ├── loader
 │   │   │   │   ├── index.ts
-│   │   │   │   ├── main.styled.ts
-│   │   │   │   └── main.tsx
-│   │   │   ├── movieCard
+│   │   │   │   ├── loader.styled.ts
+│   │   │   │   └── loader.tsx
+│   │   │   ├── logo
 │   │   │   │   ├── index.ts
-│   │   │   │   ├── movieCard.styled.ts
-│   │   │   │   └── movieCard.tsx
+│   │   │   │   ├── logo.styled.ts
+│   │   │   │   └── logo.tsx
 │   │   │   └── starRating
 │   │   │       ├── index.ts
 │   │   │       ├── star
 │   │   │       ├── starRating.styled.ts
 │   │   │       └── starRating.tsx
 │   │   ├── layout
-│   │   │   ├── box
-│   │   │   │   ├── box.tsx
-│   │   │   │   └── index.ts
 │   │   │   └── navbar
 │   │   │       ├── index.ts
-│   │   │       ├── logo
 │   │   │       ├── navbar.styled.ts
-│   │   │       ├── navbar.tsx
-│   │   │       ├── numResults
-│   │   │       └── search
+│   │   │       └── navbar.tsx
 │   │   └── screens
-│   │       ├── homePage
-│   │       │   ├── homePage.tsx
-│   │       │   └── index.ts
-│   │       ├── movieList
-│   │       │   ├── index.ts
-│   │       │   └── movieList.tsx
-│   │       ├── watchedMovieList
-│   │       │   ├── index.ts
-│   │       │   └── watchedMovieList.tsx
-│   │       └── watchedMovieSummary
+│   │       └── movies
 │   │           ├── index.ts
-│   │           ├── watchedMovieSummary.styled.ts
-│   │           └── watchedMovieSummary.tsx
+│   │           └── movies.tsx
+│   ├── hooks
+│   │   ├── useDebounce.ts
+│   │   └── useLocalStorage.ts
 │   ├── pages
 │   │   ├── _app.tsx
 │   │   ├── _document.tsx
 │   │   ├── api
+│   │   │   ├── getMovieDetails.ts
+│   │   │   └── getMovies.ts
+│   │   ├── app.js
 │   │   └── index.tsx
 │   ├── styles
 │   │   ├── baseElements.styled.ts
@@ -83,4 +77,4 @@
 ├── tsconfig.json
 └── yarn.lock
 
-32 directories, 52 files
+27 directories, 51 files

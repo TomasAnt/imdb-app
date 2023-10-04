@@ -1,15 +1,23 @@
-import { useState } from "react"
+import React, { useState } from "react"
 
-export default function Box({ children }: { children: React.ReactNode }) {
+import Button from "@components/core/button"
+
+import { StyledBox } from "./box.styled"
+
+interface BoxProps {
+  children: React.ReactNode
+}
+
+export default function Box({ children }: BoxProps) {
   const [isOpen, setIsOpen] = useState(true)
 
   return (
-    <div className="box">
-      <button className="btn-toggle" onClick={() => setIsOpen((open) => !open)}>
+    <StyledBox>
+      <Button variant="toggle" onClick={() => setIsOpen((open) => !open)}>
         {isOpen ? "–" : "+"}
-      </button>
+      </Button>
 
       {isOpen && children}
-    </div>
+    </StyledBox>
   )
 }

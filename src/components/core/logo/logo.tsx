@@ -1,8 +1,16 @@
+import {
+  StyledLogoContainer,
+  StyledLogoImage,
+  StyledLogoText,
+} from "./logo.styled"
+
 export default function Logo() {
   return (
-    <div className="logo">
-      <span role="img">🍿</span>
-      <h1>usePopcorn</h1>
-    </div>
+    <StyledLogoContainer>
+      <StyledLogoImage role="img" aria-label="popcorn">
+        🍿
+      </StyledLogoImage>
+      <StyledLogoText>usePopcorn</StyledLogoText>
+    </StyledLogoContainer>
   )
 }

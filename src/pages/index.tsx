@@ -2,7 +2,7 @@ import { NextPage } from "next"
 import Head from "next/head"
 import { serverSideTranslations } from "next-i18next/serverSideTranslations"
 
-import Movies from "@components/screens/movies"
+import MoviesDatabase from "@components/screens/moviesDatabase"
 import { Locales } from "@typings/globalTypes"
 
 const Home: NextPage = () => (
@@ -11,7 +11,7 @@ const Home: NextPage = () => (
       <title>Popcorn - Movie Database | Ratings | Watchlists</title>
       <meta name="description" content="Boilerplate" />
     </Head>
-    <Movies />
+    <MoviesDatabase />
   </>
 )
 

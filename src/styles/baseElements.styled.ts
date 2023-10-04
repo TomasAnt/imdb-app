@@ -1,5 +1,13 @@
 import styled from "styled-components"
 
+export const Main = styled.main`
+  margin-top: 2.4rem;
+  height: calc(100vh - 7.2rem - 3 * 2.4rem);
+  display: flex;
+  gap: 2.4rem;
+  justify-content: center;
+`
+
 export const FlexCenter = styled.div`
   display: flex;
   align-items: center;
@@ -16,15 +24,6 @@ export const FlexParagraph = styled.p`
   display: flex;
   align-items: center;
   gap: 0.8rem;
-`
-
-export const StyledBox = styled.div`
-  width: 42rem;
-  max-width: 42rem;
-  background-color: ${({ theme }) => theme.colors.background500};
-  border-radius: 0.9rem;
-  overflow: hidden;
-  position: relative;
 `
 
 export const UnorderedList = styled.ul`

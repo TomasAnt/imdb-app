@@ -1,7 +1,13 @@
-export default function ErrorMessage({ message }: { message: any }) {
+import { ErrorContainer } from "."
+
+interface ErrorMessageProps {
+  message: string
+}
+
+export default function ErrorMessage({ message }: ErrorMessageProps) {
   return (
-    <p className="error">
+    <ErrorContainer>
       <span>⛔️</span> {message}
-    </p>
+    </ErrorContainer>
   )
 }
