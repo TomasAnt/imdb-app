@@ -1,13 +1,15 @@
 import { useState } from "react"
 
+import Box from "@components/core/box"
 import Loader from "@components/core/loader"
-import Movie from "@components/core/movie/movie"
+import Movies from "@components/core/movies"
 import NumResults from "@components/core/numResults"
 import Search from "@components/core/search"
 import Navbar from "@components/layout/navbar"
+import { Main } from "@styles/baseElements.styled"
 import { tempMovieData } from "@utils/mockData"
 
-export default function Movies() {
+export default function MoviesDatabase() {
   const [query, setQuery] = useState("")
 
   function handleSelectMovie() {
@@ -19,7 +21,13 @@ export default function Movies() {
         <Search query={query} setQuery={setQuery} />
         <NumResults movies={tempMovieData} />
       </Navbar>
-      <Movie movie={tempMovieData[0]} onSelectMovie={handleSelectMovie} />
+
+      <Main>
+        <Box>
+          <Movies movies={tempMovieData} onSelectMovie={handleSelectMovie} />
+        </Box>
+      </Main>
+
       <Loader loaderText="Loading your content" />
       {query && <p>Searching for {query}</p>}
     </>

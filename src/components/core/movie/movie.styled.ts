@@ -1,11 +1,5 @@
 import styled from "styled-components"
 
-export const StyledList = styled.ul`
-  list-style: none;
-  padding: 0.8rem 0;
-  overflow: auto;
-`
-
 export const StyledListItem = styled.li`
   position: relative;
   display: grid;
@@ -18,6 +12,10 @@ export const StyledListItem = styled.li`
   border-bottom: 1px solid ${({ theme }) => theme.colors.background100};
   cursor: pointer;
   transition: all 0.3s;
+
+  img {
+    grid-row: 1 / -1;
+  }
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.background100};

@@ -1,5 +1,12 @@
 import Image from "next/image"
 
+import {
+  StyledListItem,
+  StyledListItemContainer,
+  StyledListItemHeading,
+  StyledListItemParagraph,
+} from "."
+
 interface MovieProps {
   movie: {
     Poster: string
@@ -12,20 +19,20 @@ interface MovieProps {
 
 export default function Movie({ movie, onSelectMovie }: MovieProps) {
   return (
-    <li onClick={() => onSelectMovie(movie.imdbID)}>
+    <StyledListItem onClick={() => onSelectMovie(movie.imdbID)}>
       <Image
         src={movie.Poster}
         alt={`${movie.Title} poster`}
         height={60}
         width={40}
       />
-      <h3>{movie.Title}</h3>
-      <div>
-        <p>
+      <StyledListItemHeading>{movie.Title}</StyledListItemHeading>
+      <StyledListItemContainer>
+        <StyledListItemParagraph>
           <span>🗓</span>
           <span>{movie.Year}</span>
-        </p>
-      </div>
-    </li>
+        </StyledListItemParagraph>
+      </StyledListItemContainer>
+    </StyledListItem>
   )
 }
