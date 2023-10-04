@@ -13,7 +13,7 @@ export default function MoviesDatabase() {
   const [query, setQuery] = useState("")
 
   function handleSelectMovie() {
-    // console.log("Movie selected")
+    console.log("Movie selected from the Movie List")
   }
   return (
     <>
@@ -23,6 +23,9 @@ export default function MoviesDatabase() {
       </Navbar>
 
       <Main>
+        <Box>
+          <Movies movies={tempMovieData} onSelectMovie={handleSelectMovie} />
+        </Box>
         <Box>
           <Movies movies={tempMovieData} onSelectMovie={handleSelectMovie} />
         </Box>
