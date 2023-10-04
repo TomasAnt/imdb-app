@@ -18,6 +18,10 @@
 │   │       └── full-star.svg
 │   ├── components
 │   │   ├── core
+│   │   │   ├── box
+│   │   │   │   ├── box.styled.ts
+│   │   │   │   ├── box.tsx
+│   │   │   │   └── index.ts
 │   │   │   ├── button
 │   │   │   │   ├── button.styled.ts
 │   │   │   │   ├── button.tsx
@@ -26,11 +30,24 @@
 │   │   │   │   ├── icon.styled.ts
 │   │   │   │   ├── icon.tsx
 │   │   │   │   └── index.ts
+│   │   │   ├── loader
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── loader.styled.ts
+│   │   │   │   └── loader.tsx
+│   │   │   ├── logo
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── logo.styled.ts
+│   │   │   │   └── logo.tsx
 │   │   │   └── starRating
 │   │   │       ├── index.ts
 │   │   │       ├── star
 │   │   │       ├── starRating.styled.ts
 │   │   │       └── starRating.tsx
+│   │   ├── layout
+│   │   │   └── navbar
+│   │   │       ├── index.ts
+│   │   │       ├── navbar.styled.ts
+│   │   │       └── navbar.tsx
 │   │   └── screens
 │   │       └── movies
 │   │           ├── index.ts
@@ -44,6 +61,7 @@
 │   │   ├── api
 │   │   │   ├── getMovieDetails.ts
 │   │   │   └── getMovies.ts
+│   │   ├── app.js
 │   │   └── index.tsx
 │   ├── styles
 │   │   ├── baseElements.styled.ts
@@ -59,4 +77,4 @@
 ├── tsconfig.json
 └── yarn.lock
 
-22 directories, 38 files
+27 directories, 51 files

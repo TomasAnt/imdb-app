@@ -1,5 +1,20 @@
 export type Locales = "en" | "lt"
 
+export type MovieType = {
+  imdbID: string
+  title: string
+  year: string
+  poster: string
+  imdbRating: number
+  runtime: number
+  userRating: number
+  countRatingDecisions: number
+}
+
+export type WatchedMovieType = MovieType & {
+  userRating: number
+}
+
 // Props for the StarRating component
 export interface StarRatingProps {
   maxRating: number // Maximum rating value

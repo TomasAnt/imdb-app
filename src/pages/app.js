@@ -4,9 +4,6 @@ import { useKey } from "./useKey"
 import { useLocalStorageState } from "./useLocalStorageState"
 import { useMovies } from "./useMovies"
 
-const average = (arr) =>
-  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0)
-
 const KEY = "f84fc31d"
 
 export default function App() {
@@ -69,56 +66,6 @@ export default function App() {
         </Box>
       </Main>
     </>
-  )
-}
-
-function Loader() {
-  return <p className="loader">Loading...</p>
-}
-
-function ErrorMessage({ message }) {
-  return (
-    <p className="error">
-      <span>⛔️</span> {message}
-    </p>
-  )
-}
-
-function NavBar({ children }) {
-  return (
-    <nav className="nav-bar">
-      <Logo />
-      {children}
-    </nav>
-  )
-}
-
-function Search({ query, setQuery }) {
-  const inputEl = useRef(null)
-
-  useKey("Enter", function () {
-    if (document.activeElement === inputEl.current) return
-    inputEl.current.focus()
-    setQuery("")
-  })
-
-  return (
-    <input
-      className="search"
-      type="text"
-      placeholder="Search movies..."
-      value={query}
-      onChange={(e) => setQuery(e.target.value)}
-      ref={inputEl}
-    />
-  )
-}
-
-function NumResults({ movies }) {
-  return (
-    <p className="num-results">
-      Found <strong>{movies.length}</strong> results
-    </p>
   )
 }
 
