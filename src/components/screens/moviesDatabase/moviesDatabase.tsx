@@ -13,7 +13,7 @@ export default function MoviesDatabase() {
   const [query, setQuery] = useState("")
 
   function handleSelectMovie() {
-    console.log("Movie selected")
+    // console.log("Movie selected")
   }
   return (
     <>
