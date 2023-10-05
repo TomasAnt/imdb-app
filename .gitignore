@@ -19,7 +19,8 @@
 .DS_Store
 *.pem
 package-lock.json
-oldFile.md
+oldFile.jsx
+
 
 # debug
 npm-debug.log*

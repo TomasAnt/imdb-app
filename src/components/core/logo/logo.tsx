@@ -1,8 +1,4 @@
-import {
-  StyledLogoContainer,
-  StyledLogoImage,
-  StyledLogoText,
-} from "./logo.styled"
+import { StyledLogoContainer, StyledLogoImage, StyledLogoText } from "."
 
 export default function Logo() {
   return (

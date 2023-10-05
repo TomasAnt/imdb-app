@@ -37,3 +37,15 @@ export const StyledListItemParagraph = styled.p`
   align-items: center;
   gap: 0.8rem;
 `
+
+export const ImagePlaceholder = styled.div`
+  display: flex;
+  background-color: ${({ theme }) => theme.colors.background100};
+  border-radius: 0.8rem;
+  grid-row: 1 / -1;
+  font-size: 1rem;
+  align-items: center;
+  text-align: center;
+  width: 4rem;
+  height: 6rem;
+`
