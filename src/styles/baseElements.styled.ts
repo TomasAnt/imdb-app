@@ -8,6 +8,17 @@ export const Main = styled.main`
   justify-content: center;
 `
 
+export const Rating = styled.div`
+  background-color: ${({ theme }) => theme.colors.background100};
+  border-radius: 0.9rem;
+  padding: 2rem 2.4rem;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+`
+
 export const FlexCenter = styled.div`
   display: flex;
   align-items: center;
@@ -58,4 +69,13 @@ export const RatingBox = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+`
+
+export const Placeholder = styled.div`
+  display: flex;
+  border-radius: 0.8rem;
+  grid-row: 1 / -1;
+  font-size: 1rem;
+  align-items: center;
+  text-align: center;
 `

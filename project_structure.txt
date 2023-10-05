@@ -3,6 +3,7 @@
 ├── next-env.d.ts
 ├── next-i18next.config.js
 ├── next.config.js
+├── oldFile.jsx
 ├── package.json
 ├── project_structure.txt
 ├── public
@@ -26,6 +27,10 @@
 │   │   │   │   ├── button.styled.ts
 │   │   │   │   ├── button.tsx
 │   │   │   │   └── index.ts
+│   │   │   ├── errorMessage
+│   │   │   │   ├── errorMessage.styled.ts
+│   │   │   │   ├── errorMessage.tsx
+│   │   │   │   └── index.ts
 │   │   │   ├── icon
 │   │   │   │   ├── icon.styled.ts
 │   │   │   │   ├── icon.tsx
@@ -38,6 +43,26 @@
 │   │   │   │   ├── index.ts
 │   │   │   │   ├── logo.styled.ts
 │   │   │   │   └── logo.tsx
+│   │   │   ├── movie
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── movie.styled.ts
+│   │   │   │   └── movie.tsx
+│   │   │   ├── movieDetails
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── movieDetails.styled.ts
+│   │   │   │   └── movieDetails.tsx
+│   │   │   ├── movies
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── movies.styled.ts
+│   │   │   │   └── movies.tsx
+│   │   │   ├── numResults
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── numResults.styled.ts
+│   │   │   │   └── numResults.tsx
+│   │   │   ├── search
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── search.styled.ts
+│   │   │   │   └── search.tsx
 │   │   │   └── starRating
 │   │   │       ├── index.ts
 │   │   │       ├── star
@@ -49,19 +74,21 @@
 │   │   │       ├── navbar.styled.ts
 │   │   │       └── navbar.tsx
 │   │   └── screens
-│   │       └── movies
+│   │       └── moviesDatabase
 │   │           ├── index.ts
-│   │           └── movies.tsx
+│   │           └── moviesDatabase.tsx
 │   ├── hooks
 │   │   ├── useDebounce.ts
+│   │   ├── useGetMovieDetails.ts
+│   │   ├── useGetMovies.ts
 │   │   └── useLocalStorage.ts
 │   ├── pages
 │   │   ├── _app.tsx
 │   │   ├── _document.tsx
 │   │   ├── api
 │   │   │   ├── getMovieDetails.ts
-│   │   │   └── getMovies.ts
-│   │   ├── app.js
+│   │   │   ├── getMovies.ts
+│   │   │   └── imageProxy.ts
 │   │   └── index.tsx
 │   ├── styles
 │   │   ├── baseElements.styled.ts
@@ -75,6 +102,7 @@
 │       ├── helpers.ts
 │       └── mockData.ts
 ├── tsconfig.json
+├── typings.d.ts
 └── yarn.lock
 
-27 directories, 51 files
+33 directories, 73 files
