@@ -1,7 +1,5 @@
 import Movie from "@components/core/movie"
-
-import { StyledList } from "."
-
+import { UnorderedList } from "@styles/baseElements.styled"
 interface MoviesProps {
   movies: {
     Poster: string
@@ -25,10 +23,10 @@ interface MoviesProps {
 
 export default function Movies({ movies, onSelectMovie }: MoviesProps) {
   return (
-    <StyledList>
+    <UnorderedList>
       {movies?.map((movie) => (
         <Movie movie={movie} key={movie.imdbID} onSelectMovie={onSelectMovie} />
       ))}
-    </StyledList>
+    </UnorderedList>
   )
 }
