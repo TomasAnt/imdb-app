@@ -19,7 +19,7 @@
 .DS_Store
 *.pem
 package-lock.json
-oldFile.jsx
+oldContent.jsx
 
 
 # debug

@@ -1,18 +1,26 @@
 export type Locales = "en" | "lt"
 
-export type MovieType = {
+export interface SingleMovie {
   imdbID: string
-  title: string
-  year: string
-  poster: string
+  Title: string
+  Year: string
+  Poster: string
+  Genre?: string
+  Released?: string
+  Runtime: any
   imdbRating: number
-  runtime: number
-  userRating: number
-  countRatingDecisions: number
+  UserRating: number
+  Plot?: string
+  Director?: string
+  Actors?: string
 }
 
-export type WatchedMovieType = MovieType & {
-  userRating: number
+export interface MultipleMovies {
+  movies: SingleMovie[]
+}
+
+export interface WatchedMovie {
+  watched: SingleMovie[]
 }
 
 // Props for the StarRating component

@@ -1,14 +1,9 @@
 import Movie from "@components/core/movie"
-
-import { StyledList } from "."
+import { UnorderedList } from "@styles/baseElements.styled"
+import { SingleMovie } from "@typings/globalTypes"
 
 interface MoviesProps {
-  movies: {
-    Poster: string
-    Title: string
-    imdbID: string
-    Year: string
-  }[]
+  movies: SingleMovie[]
   onSelectMovie: (id: string) => void
 }
 
@@ -25,10 +20,10 @@ interface MoviesProps {
 
 export default function Movies({ movies, onSelectMovie }: MoviesProps) {
   return (
-    <StyledList>
+    <UnorderedList>
       {movies?.map((movie) => (
         <Movie movie={movie} key={movie.imdbID} onSelectMovie={onSelectMovie} />
       ))}
-    </StyledList>
+    </UnorderedList>
   )
 }

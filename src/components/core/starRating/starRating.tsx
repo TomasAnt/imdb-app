@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
 import Star from "@components/core/starRating/star"
 import { FlexContainer } from "@styles/baseElements.styled"
@@ -22,14 +22,14 @@ import { StarContainer, StarText } from "./starRating.styled"
  * Messages corresponding to rating values can be displayed next to the stars.
  */
 
-const StarRating: React.FC<StarRatingProps> = ({
+export default function StarRating({
   color = "#fcc419",
   size = 48,
   messages = [],
   maxRating = 5,
   defaultRating = 0,
   onSetRating,
-}) => {
+}: StarRatingProps) {
   const [rating, setRating] = useState(defaultRating)
   const [tempRating, setTempRating] = useState(0)
 
@@ -61,5 +61,3 @@ const StarRating: React.FC<StarRatingProps> = ({
     </FlexContainer>
   )
 }
-
-export default StarRating

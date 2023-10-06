@@ -1,5 +1,6 @@
 import Image from "next/image"
 
+import Button from "@components/core/button"
 import { Placeholder } from "@styles/baseElements.styled"
 import { SingleMovie } from "@typings/globalTypes"
 
@@ -11,25 +12,28 @@ import {
 } from "."
 
 /**
- * Movie Component
+ * WatchedMovie Component
  *
  * @param movie - Contains information about a single movie.
- * @param onSelectMovie - Function to execute when a movie is selected.
+ * @param onDeleteWatched - Function to execute when a movie is deleted.
  *
  * This component displays a movie's poster, title, and year.
  * If the movie lacks a poster, a default image is displayed.
  */
 
-interface MovieProps {
+interface WatchedMovieProps {
   movie: SingleMovie
-  onSelectMovie: (imdbID: string) => void
+  onDeleteWatched: (imdbID: string) => void
 }
 
-export default function Movie({ movie, onSelectMovie }: MovieProps) {
-  const { Title, Year, Poster, imdbID } = movie
+export default function WatchedMovie({
+  movie,
+  onDeleteWatched,
+}: WatchedMovieProps) {
+  const { Title, Poster, imdbRating, Runtime, imdbID, UserRating } = movie
 
   return (
-    <StyledListItem onClick={() => onSelectMovie(imdbID)}>
+    <StyledListItem>
       {Poster === "N/A" ? (
         <Placeholder>NO IMAGE</Placeholder>
       ) : (
@@ -44,9 +48,21 @@ export default function Movie({ movie, onSelectMovie }: MovieProps) {
       <StyledListItemHeading>{Title}</StyledListItemHeading>
       <StyledListItemContainer>
         <StyledListItemParagraph>
-          <span>🗓</span>
-          <span>{Year}</span>
+          <span>⭐️</span>
+          <span>{imdbRating}</span>
         </StyledListItemParagraph>
+        <StyledListItemParagraph>
+          <span>🌟</span>
+          <span>{UserRating}</span>
+        </StyledListItemParagraph>
+        <StyledListItemParagraph>
+          <span>⏳</span>
+          <span>{Runtime}</span>
+        </StyledListItemParagraph>
+
+        <Button variant="delete" onClick={() => onDeleteWatched(imdbID)}>
+          X
+        </Button>
       </StyledListItemContainer>
     </StyledListItem>
   )

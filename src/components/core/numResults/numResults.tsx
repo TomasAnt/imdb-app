@@ -1,15 +1,6 @@
+import { MultipleMovies } from "@typings/globalTypes"
+
 import { StyledNumResults } from "."
-
-interface Movie {
-  imdbID: string
-  Title: string
-  Year: string
-  Poster: string
-}
-
-interface NumResultsProps {
-  movies: Movie[]
-}
 
 /**
  * NumResults Component
@@ -21,7 +12,7 @@ interface NumResultsProps {
  * effectively showing how many movies are in the list.
  */
 
-export default function NumResults({ movies }: NumResultsProps) {
+export default function NumResults({ movies }: MultipleMovies) {
   return (
     <StyledNumResults>
       Found <strong>{movies.length}</strong> results

@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import Image from "next/image"
 
@@ -7,6 +7,7 @@ import Loader from "@components/core/loader"
 import StarRating from "@components/core/starRating"
 import { useGetMovieDetails } from "@hooks/useGetMovieDetails"
 import { Rating, Placeholder } from "@styles/baseElements.styled"
+import { SingleMovie } from "@typings/globalTypes"
 
 import { Details, DetailsOverview } from "./movieDetails.styled"
 
@@ -28,19 +29,7 @@ import { Details, DetailsOverview } from "./movieDetails.styled"
  * The sub-component `MovieDetailsOverview` is used to display the main details of the movie, such as the title, release date, runtime, and genre.
  */
 
-interface Movie {
-  Title: string
-  Poster: string
-  Runtime: string
-  imdbRating: string
-  Plot: string
-  Released: string
-  Actors: string
-  Director: string
-  Genre: string
-}
-
-const MovieDetailsOverview = ({ movie }: { movie: Movie }) => {
+const MovieDetailsOverview = ({ movie }: { movie: SingleMovie }) => {
   const { Title, Released, Runtime, Genre, imdbRating } = movie
   return (
     <DetailsOverview>
@@ -59,15 +48,33 @@ const MovieDetailsOverview = ({ movie }: { movie: Movie }) => {
 
 type MovieDetailsProps = {
   selectedId: string
+  watched: SingleMovie[]
   onCloseMovie: () => void
+  onAddWatched: (movie: SingleMovie) => void
 }
 
 export default function MovieDetails({
   selectedId,
   onCloseMovie,
+  onAddWatched,
+  watched,
 }: MovieDetailsProps) {
   const [userRating, setUserRating] = useState<number>(0)
   const { movie, isLoading } = useGetMovieDetails(selectedId)
+
+  useEffect(() => {
+    if (!movie) return
+    document.title = `Movie | ${movie?.Title}`
+
+    return () => {
+      document.title = "Popcorn - Movie database"
+    }
+  }, [movie])
+
+  const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId)
+  const watchedUserRating = watched.find(
+    (movie) => movie.imdbID === selectedId
+  )?.UserRating
 
   if (isLoading) {
     return <Loader loaderText="Loading movie details" />
@@ -75,6 +82,23 @@ export default function MovieDetails({
 
   if (!movie) {
     return null
+  }
+
+  const { Title, Year, Poster, Runtime, imdbRating } = movie
+
+  function handleAdd() {
+    const newWatchedMovie = {
+      imdbID: selectedId,
+      Title,
+      Year,
+      Poster,
+      Runtime: Number(Runtime.split(" ")[0]),
+      imdbRating: Number(imdbRating),
+      UserRating: userRating,
+    }
+
+    onAddWatched(newWatchedMovie)
+    onCloseMovie()
   }
 
   return (
@@ -99,14 +123,41 @@ export default function MovieDetails({
       </header>
       <section>
         <Rating>
-          <StarRating maxRating={10} size={24} onSetRating={setUserRating} />
+          {!isWatched ? (
+            <>
+              <StarRating
+                maxRating={10}
+                size={24}
+                onSetRating={setUserRating}
+              />
+
+              {userRating > 0 && (
+                <Button variant="add" onClick={handleAdd}>
+                  + Add to List
+                </Button>
+              )}
+            </>
+          ) : (
+            <p>
+              You've rated this movie already: {watchedUserRating}{" "}
+              <span>🌟</span>{" "}
+            </p>
+          )}
         </Rating>
         <p>
+          <strong>Plot: </strong>
           <em>{movie.Plot}</em>
         </p>
-        <p>Starring {movie.Actors}</p>
-        <p>Directed by {movie.Director}</p>
-        <p>{userRating}</p>
+        <p>
+          <strong>Starring: </strong> {movie.Actors}
+        </p>
+        <p>
+          <strong>Directed by: </strong> {movie.Director}
+        </p>
+        <p>
+          <strong>User Rating: </strong>
+          {userRating}
+        </p>
       </section>
     </Details>
   )

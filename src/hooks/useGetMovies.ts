@@ -1,18 +1,15 @@
 import { useState, useEffect } from "react"
 
-type MoviesProps = {
-  imdbID: string
-  Title: string
-  Year: string
-  Poster: string
-}
+import { SingleMovie } from "@typings/globalTypes"
 
 export function useGetMovies(query: string) {
-  const [movies, setMovies] = useState<MoviesProps[]>([])
+  const [movies, setMovies] = useState<SingleMovie[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState("")
 
   useEffect(() => {
+    const controller = new AbortController()
+
     async function fetchMovies() {
       if (!query) {
         setMovies([])
@@ -23,7 +20,9 @@ export function useGetMovies(query: string) {
       setIsLoading(true)
 
       try {
-        const res = await fetch(`/api/getMovies?q=${query}`)
+        const res = await fetch(`/api/getMovies?q=${query}`, {
+          signal: controller.signal,
+        })
 
         if (res.status === 404) {
           setIsError(`No results for movie: "${query}" found`)
@@ -57,6 +56,10 @@ export function useGetMovies(query: string) {
     }
 
     fetchMovies()
+
+    return () => {
+      controller.abort()
+    }
   }, [query])
 
   return { movies, isLoading, isError }

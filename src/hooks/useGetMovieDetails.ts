@@ -1,19 +1,9 @@
 import { useEffect, useState } from "react"
 
-interface Movie {
-  Title: string
-  Poster: string
-  Runtime: string
-  imdbRating: string
-  Plot: string
-  Released: string
-  Actors: string
-  Director: string
-  Genre: string
-}
+import { SingleMovie } from "@typings/globalTypes"
 
 export function useGetMovieDetails(selectedId: string) {
-  const [movie, setMovie] = useState<Movie | null>(null)
+  const [movie, setMovie] = useState<SingleMovie | null>(null)
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
