@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import Image from "next/image"
 
@@ -61,6 +61,16 @@ export default function MovieDetails({
 }: MovieDetailsProps) {
   const [userRating, setUserRating] = useState<number>(0)
   const { movie, isLoading } = useGetMovieDetails(selectedId)
+
+  useEffect(() => {
+    if (!movie) return
+    document.title = `Movie | ${movie?.Title}`
+
+    return () => {
+      document.title = "Popcorn - Movie database"
+    }
+  }, [movie])
+
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId)
   const watchedUserRating = watched.find(
     (movie) => movie.imdbID === selectedId
