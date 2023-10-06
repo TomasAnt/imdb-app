@@ -1,13 +1,15 @@
 import { WatchedMovie } from "@typings/globalTypes"
 import { average } from "@utils/helpers"
 
+import { Summary } from "."
+
 export default function WatchedSummary({ watched }: WatchedMovie) {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating))
   const avgUserRating = average(watched.map((movie) => movie.UserRating))
   const avgRuntime = average(watched.map((movie) => movie.Runtime))
 
   return (
-    <div className="summary">
+    <Summary>
       <h2>Movies you watched</h2>
       <div>
         <p>
@@ -27,6 +29,6 @@ export default function WatchedSummary({ watched }: WatchedMovie) {
           <span>{avgRuntime} min</span>
         </p>
       </div>
-    </div>
+    </Summary>
   )
 }

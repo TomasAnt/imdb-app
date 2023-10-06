@@ -5,9 +5,14 @@ export interface SingleMovie {
   Title: string
   Year: string
   Poster: string
+  Genre?: string
+  Released?: string
   Runtime: number
   imdbRating: number
   UserRating: number
+  Plot?: string
+  Director?: string
+  Actors?: string
 }
 
 export interface MultipleMovies {

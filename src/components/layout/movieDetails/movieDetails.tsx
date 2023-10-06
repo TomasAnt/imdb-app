@@ -7,6 +7,7 @@ import Loader from "@components/core/loader"
 import StarRating from "@components/core/starRating"
 import { useGetMovieDetails } from "@hooks/useGetMovieDetails"
 import { Rating, Placeholder } from "@styles/baseElements.styled"
+import { SingleMovie } from "@typings/globalTypes"
 
 import { Details, DetailsOverview } from "./movieDetails.styled"
 
@@ -28,19 +29,7 @@ import { Details, DetailsOverview } from "./movieDetails.styled"
  * The sub-component `MovieDetailsOverview` is used to display the main details of the movie, such as the title, release date, runtime, and genre.
  */
 
-interface Movie {
-  Title: string
-  Poster: string
-  Runtime: string
-  imdbRating: string
-  Plot: string
-  Released: string
-  Actors: string
-  Director: string
-  Genre: string
-}
-
-const MovieDetailsOverview = ({ movie }: { movie: Movie }) => {
+const MovieDetailsOverview = ({ movie }: { movie: SingleMovie }) => {
   const { Title, Released, Runtime, Genre, imdbRating } = movie
   return (
     <DetailsOverview>
