@@ -7,7 +7,7 @@ export interface SingleMovie {
   Poster: string
   Genre?: string
   Released?: string
-  Runtime: number
+  Runtime: any
   imdbRating: number
   UserRating: number
   Plot?: string

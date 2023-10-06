@@ -13,7 +13,7 @@ import Navbar from "@components/layout/navbar"
 import { useDebounce } from "@hooks/useDebounce"
 import { useGetMovies } from "@hooks/useGetMovies"
 import { Main } from "@styles/baseElements.styled"
-import { tempWatchedData } from "@utils/mockData"
+import { SingleMovie } from "@typings/globalTypes"
 
 /**
  * MoviesDatabase Component
@@ -48,7 +48,11 @@ import { tempWatchedData } from "@utils/mockData"
 export default function MoviesDatabase() {
   const [query, setQuery] = useState("")
   const [selectedId, setSelectedId] = useState<string | null>("")
-  const [watched, setWatched] = useState(tempWatchedData)
+  const [watched, setWatched] = useState<SingleMovie[]>([])
+
+  function handleAddWatched(movie: SingleMovie) {
+    setWatched((watched) => [...watched, movie])
+  }
 
   function handleDeleteWatched(id: string) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id))
@@ -86,6 +90,8 @@ export default function MoviesDatabase() {
             <MovieDetails
               selectedId={selectedId}
               onCloseMovie={handleCloseMovie}
+              onAddWatched={handleAddWatched}
+              watched={watched}
             />
           ) : (
             <>

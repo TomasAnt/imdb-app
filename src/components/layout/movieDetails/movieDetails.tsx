@@ -48,15 +48,23 @@ const MovieDetailsOverview = ({ movie }: { movie: SingleMovie }) => {
 
 type MovieDetailsProps = {
   selectedId: string
+  watched: SingleMovie[]
   onCloseMovie: () => void
+  onAddWatched: (movie: SingleMovie) => void
 }
 
 export default function MovieDetails({
   selectedId,
   onCloseMovie,
+  onAddWatched,
+  watched,
 }: MovieDetailsProps) {
   const [userRating, setUserRating] = useState<number>(0)
   const { movie, isLoading } = useGetMovieDetails(selectedId)
+  const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId)
+  const watchedUserRating = watched.find(
+    (movie) => movie.imdbID === selectedId
+  )?.UserRating
 
   if (isLoading) {
     return <Loader loaderText="Loading movie details" />
@@ -64,6 +72,23 @@ export default function MovieDetails({
 
   if (!movie) {
     return null
+  }
+
+  const { Title, Year, Poster, Runtime, imdbRating } = movie
+
+  function handleAdd() {
+    const newWatchedMovie = {
+      imdbID: selectedId,
+      Title,
+      Year,
+      Poster,
+      Runtime: Number(Runtime.split(" ")[0]),
+      imdbRating: Number(imdbRating),
+      UserRating: userRating,
+    }
+
+    onAddWatched(newWatchedMovie)
+    onCloseMovie()
   }
 
   return (
@@ -88,14 +113,41 @@ export default function MovieDetails({
       </header>
       <section>
         <Rating>
-          <StarRating maxRating={10} size={24} onSetRating={setUserRating} />
+          {!isWatched ? (
+            <>
+              <StarRating
+                maxRating={10}
+                size={24}
+                onSetRating={setUserRating}
+              />
+
+              {userRating > 0 && (
+                <Button variant="add" onClick={handleAdd}>
+                  + Add to List
+                </Button>
+              )}
+            </>
+          ) : (
+            <p>
+              You've rated this movie already: {watchedUserRating}{" "}
+              <span>🌟</span>{" "}
+            </p>
+          )}
         </Rating>
         <p>
+          <strong>Plot: </strong>
           <em>{movie.Plot}</em>
         </p>
-        <p>Starring {movie.Actors}</p>
-        <p>Directed by {movie.Director}</p>
-        <p>{userRating}</p>
+        <p>
+          <strong>Starring: </strong> {movie.Actors}
+        </p>
+        <p>
+          <strong>Directed by: </strong> {movie.Director}
+        </p>
+        <p>
+          <strong>User Rating: </strong>
+          {userRating}
+        </p>
       </section>
     </Details>
   )

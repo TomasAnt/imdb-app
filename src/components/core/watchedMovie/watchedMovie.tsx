@@ -30,7 +30,7 @@ export default function WatchedMovie({
   movie,
   onDeleteWatched,
 }: WatchedMovieProps) {
-  const { Title, Poster, imdbRating, Runtime, imdbID } = movie
+  const { Title, Poster, imdbRating, Runtime, imdbID, UserRating } = movie
 
   return (
     <StyledListItem>
@@ -53,11 +53,11 @@ export default function WatchedMovie({
         </StyledListItemParagraph>
         <StyledListItemParagraph>
           <span>🌟</span>
-          <span>$userRating</span>
+          <span>{UserRating}</span>
         </StyledListItemParagraph>
         <StyledListItemParagraph>
           <span>⏳</span>
-          <span>{Runtime} min</span>
+          <span>{Runtime}</span>
         </StyledListItemParagraph>
 
         <Button variant="delete" onClick={() => onDeleteWatched(imdbID)}>
