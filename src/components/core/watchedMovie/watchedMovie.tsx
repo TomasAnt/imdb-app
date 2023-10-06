@@ -2,6 +2,7 @@ import Image from "next/image"
 
 import Button from "@components/core/button"
 import { Placeholder } from "@styles/baseElements.styled"
+import { SingleMovie } from "@typings/globalTypes"
 
 import {
   StyledListItem,
@@ -10,19 +11,25 @@ import {
   StyledListItemParagraph,
 } from "."
 
-interface MovieProps {
-  movie: {
-    Poster: string
-    Title: string
-    Year: string
-    imdbRating: string
-    Runtime: string
-    imdbID: string
-  }
-  onDeleteWatched: (id: string) => void
+/**
+ * WatchedMovie Component
+ *
+ * @param movie - Contains information about a single movie.
+ * @param onDeleteWatched - Function to execute when a movie is deleted.
+ *
+ * This component displays a movie's poster, title, and year.
+ * If the movie lacks a poster, a default image is displayed.
+ */
+
+interface WatchedMovieProps {
+  movie: SingleMovie
+  onDeleteWatched: (imdbID: string) => void
 }
 
-export default function WatchedMovie({ movie, onDeleteWatched }: MovieProps) {
+export default function WatchedMovie({
+  movie,
+  onDeleteWatched,
+}: WatchedMovieProps) {
   const { Title, Poster, imdbRating, Runtime, imdbID } = movie
 
   return (

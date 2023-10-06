@@ -1,6 +1,7 @@
 import Image from "next/image"
 
 import { Placeholder } from "@styles/baseElements.styled"
+import { SingleMovie } from "@typings/globalTypes"
 
 import {
   StyledListItem,
@@ -20,13 +21,8 @@ import {
  */
 
 interface MovieProps {
-  movie: {
-    Poster: string
-    Title: string
-    imdbID: string
-    Year: string
-  }
-  onSelectMovie: (id: string) => void
+  movie: SingleMovie
+  onSelectMovie: (imdbID: string) => void
 }
 
 export default function Movie({ movie, onSelectMovie }: MovieProps) {

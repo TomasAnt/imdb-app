@@ -1,14 +1,9 @@
 import { useState, useEffect } from "react"
 
-type MoviesProps = {
-  imdbID: string
-  Title: string
-  Year: string
-  Poster: string
-}
+import { SingleMovie } from "@typings/globalTypes"
 
 export function useGetMovies(query: string) {
-  const [movies, setMovies] = useState<MoviesProps[]>([])
+  const [movies, setMovies] = useState<SingleMovie[]>([])
   const [isLoading, setIsLoading] = useState(false)
   const [isError, setIsError] = useState("")
 

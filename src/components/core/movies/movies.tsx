@@ -1,12 +1,9 @@
 import Movie from "@components/core/movie"
 import { UnorderedList } from "@styles/baseElements.styled"
+import { SingleMovie } from "@typings/globalTypes"
+
 interface MoviesProps {
-  movies: {
-    Poster: string
-    Title: string
-    imdbID: string
-    Year: string
-  }[]
+  movies: SingleMovie[]
   onSelectMovie: (id: string) => void
 }
 
