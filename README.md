@@ -18,8 +18,6 @@ Popcorn is a movie database application that allows users to discover movies, se
 1. [Features](#features)
 2. [Installation](#installation)
 3. [Usage](#usage)
-4. [Contributing](#contributing)
-5. [License](#license)
 
 ## Features
 
