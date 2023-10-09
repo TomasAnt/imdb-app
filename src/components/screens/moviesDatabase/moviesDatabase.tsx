@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 import Box from "@components/core/box"
 import ErrorMessage from "@components/core/errorMessage/errorMessage"
@@ -14,19 +14,26 @@ import { useDebounce } from "@hooks/useDebounce"
 import { useGetMovies } from "@hooks/useGetMovies"
 import { Main } from "@styles/baseElements.styled"
 import { SingleMovie } from "@typings/globalTypes"
+import { tempWatchedData } from "@utils/mockData"
 
 /**
  * MoviesDatabase Component
  *
  * This component serves as the main container for the movie database application.
  *
+ * Local States:
  * @property {string} query - Local state for storing the search query.
- * @property {string} selectedId - Local state for storing the ID of the selected movie.
+ * @property {string|null} selectedId - Local state for storing the ID of the selected movie.
+ * @property {Array} watched - Local state for storing the list of watched movies.
+ *
+ * API Response:
  * @property {Array} movies - Array of movie objects fetched based on the debounced search query.
  * @property {boolean} isLoading - A flag indicating whether the component is in a loading state.
  * @property {string} isError - Stores an error message, if any, while fetching data.
  *
  * Functions:
+ * - handleAddWatched(movie: SingleMovie): Adds a movie to the watched list and updates localStorage.
+ * - handleDeleteWatched(id: string): Deletes a movie from the watched list and updates localStorage.
  * - handleSelectMovie(id: string): Sets or unsets the selected movie ID.
  * - handleCloseMovie(): Resets the selected movie ID to an empty string.
  *
@@ -42,28 +49,44 @@ import { SingleMovie } from "@typings/globalTypes"
  * - MovieDetails: Displays the details of the selected movie.
  * - Loader: Displays a loader while fetching data.
  * - ErrorMessage: Displays an error message if data fetching fails.
+ * - WatchedSummary: Displays summary info about the watched movies.
+ * - WatchedMovies: Displays the list of watched movies.
  *
  */
+
+const WATCHED_MOVIES_KEY = "watched_movies"
 
 export default function MoviesDatabase() {
   const [query, setQuery] = useState("")
   const [selectedId, setSelectedId] = useState<string | null>("")
-  const [watched, setWatched] = useState<SingleMovie[]>([])
+  const [watched, setWatched] = useState(tempWatchedData)
+
+  const debouncedQuery = useDebounce(query, 500)
+  const { movies, isLoading, isError } = useGetMovies(debouncedQuery)
+
+  useEffect(() => {
+    const watchedMoviesJSON = localStorage.getItem(WATCHED_MOVIES_KEY)
+    if (watchedMoviesJSON) {
+      const watchedMovies = JSON.parse(watchedMoviesJSON)
+      setWatched(watchedMovies)
+    }
+  }, [])
 
   function handleAddWatched(movie: SingleMovie) {
-    setWatched((watched) => [...watched, movie])
+    const newWatched = [...watched, movie]
+    setWatched(newWatched)
+    localStorage.setItem(WATCHED_MOVIES_KEY, JSON.stringify(newWatched))
   }
 
   function handleDeleteWatched(id: string) {
-    setWatched((watched) => watched.filter((movie) => movie.imdbID !== id))
+    const newWatched = watched.filter((movie) => movie.imdbID !== id)
+    setWatched(newWatched)
+    localStorage.setItem(WATCHED_MOVIES_KEY, JSON.stringify(newWatched))
   }
 
   function handleSelectMovie(id: string) {
     setSelectedId((selectedId) => (id === selectedId ? null : id))
   }
-
-  const debouncedQuery = useDebounce(query, 500)
-  const { movies, isLoading, isError } = useGetMovies(debouncedQuery)
 
   function handleCloseMovie() {
     setSelectedId("")
