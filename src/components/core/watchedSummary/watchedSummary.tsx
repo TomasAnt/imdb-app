@@ -21,7 +21,7 @@ import { Summary } from "."
 export default function WatchedSummary({ watched }: WatchedMovie) {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating))
   const avgUserRating = average(watched.map((movie) => movie.UserRating))
-  const avgRuntime = average(watched.map((movie) => movie.Runtime))
+  const avgRuntime = average(watched.map((movie) => movie.Runtime)).toFixed(0)
 
   return (
     <Summary>
