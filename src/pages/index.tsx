@@ -8,8 +8,15 @@ import { Locales } from "@typings/globalTypes"
 const Home: NextPage = () => (
   <>
     <Head>
-      <title>Popcorn - Movie Database | Ratings | Watchlists</title>
-      <meta name="description" content="Boilerplate" />
+      <title>Popcorn: Movie Database | Ratings, Reviews & Watchlists</title>
+      <meta
+        name="description"
+        content="Discover, rate, and keep track of your favorite movies with Popcorn. Dive into our extensive database to find the best films for every mood and occasion."
+      />
+      <meta
+        name="keywords"
+        content="Movies, Database, Ratings, Watchlist, Reviews, Popcorn"
+      />
     </Head>
     <MoviesDatabase />
   </>
