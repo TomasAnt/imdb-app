@@ -35,10 +35,8 @@ Popcorn is a movie database application that allows users to discover movies, se
 
 Clone this repository and install the dependencies.
 
-\`\`\`bash
-cd popcorn
-yarn install
-\`\`\`
+You will need to get an API key from https://omdbapi.com
+Create env.local file and paste API in key (use env.example for reference)
 
 ## Usage
 
