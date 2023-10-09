@@ -3,13 +3,12 @@ import { useEffect, useState } from "react"
 import Box from "@components/core/box"
 import ErrorMessage from "@components/core/errorMessage/errorMessage"
 import Loader from "@components/core/loader"
-import Movies from "@components/core/movies"
+import Navbar from "@components/core/navbar"
 import NumResults from "@components/core/numResults"
 import Search from "@components/core/search"
-import WatchedMovies from "@components/core/watchedMovies"
-import WatchedSummary from "@components/core/watchedSummary"
-import MovieDetails from "@components/layout/movieDetails"
-import Navbar from "@components/layout/navbar"
+import { MovieDetails } from "@components/movie"
+import { MovieList } from "@components/movieList"
+import { WatchedSummary, WatchedList } from "@components/watched"
 import { useDebounce } from "@hooks/useDebounce"
 import { useGetMovies } from "@hooks/useGetMovies"
 import { Main } from "@styles/baseElements.styled"
@@ -104,7 +103,7 @@ export default function MoviesDatabase() {
           {isLoading ? (
             <Loader loaderText="Loading your movies" />
           ) : (
-            <Movies movies={movies} onSelectMovie={handleSelectMovie} />
+            <MovieList movies={movies} onSelectMovie={handleSelectMovie} />
           )}
           {isError && <ErrorMessage message={isError} />}
         </Box>
@@ -119,7 +118,7 @@ export default function MoviesDatabase() {
           ) : (
             <>
               <WatchedSummary watched={watched} />
-              <WatchedMovies
+              <WatchedList
                 watched={watched}
                 onDeleteWatched={handleDeleteWatched}
               />

@@ -5,11 +5,12 @@ import Image from "next/image"
 import Button from "@components/core/button"
 import Loader from "@components/core/loader"
 import StarRating from "@components/core/starRating"
+import MovieOverview from "@components/movie/movieOverview"
 import { useGetMovieDetails } from "@hooks/useGetMovieDetails"
 import { Rating, Placeholder } from "@styles/baseElements.styled"
 import { SingleMovie } from "@typings/globalTypes"
 
-import { Details, DetailsOverview } from "./movieDetails.styled"
+import { Details } from "./movieDetails.styled"
 
 /**
  * MovieDetails Component
@@ -26,25 +27,7 @@ import { Details, DetailsOverview } from "./movieDetails.styled"
  * The component utilizes the `useGetMovieDetails` custom hook to fetch details of a movie based on its IMDb ID.
  * It maintains a local state `userRating` to keep track of the user's rating for the movie.
  *
- * The sub-component `MovieDetailsOverview` is used to display the main details of the movie, such as the title, release date, runtime, and genre.
  */
-
-const MovieDetailsOverview = ({ movie }: { movie: SingleMovie }) => {
-  const { Title, Released, Runtime, Genre, imdbRating } = movie
-  return (
-    <DetailsOverview>
-      <h2>{Title}</h2>
-      <p>
-        {Released} &bull; {Runtime}
-      </p>
-      <p>{Genre}</p>
-      <p>
-        <span>⭐️</span>
-        {imdbRating} IMDb rating
-      </p>
-    </DetailsOverview>
-  )
-}
 
 type MovieDetailsProps = {
   selectedId: string
@@ -119,7 +102,7 @@ export default function MovieDetails({
             loading="lazy"
           />
         )}
-        <MovieDetailsOverview movie={movie} />
+        <MovieOverview movie={movie} />
       </header>
       <section>
         <Rating>

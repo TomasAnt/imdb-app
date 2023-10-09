@@ -1,31 +1,31 @@
-import WatchedMovie from "@components/core/watchedMovie"
+import WatchedItem from "@components/watched/watchedItem"
 import { UnorderedList } from "@styles/baseElements.styled"
 import { SingleMovie } from "@typings/globalTypes"
 
 /**
- * WatchedMovies Component
+ * WatchedList Component
  *
- * @param props - The props that WatchedMovies expects.
+ * @param props - The props that WatchedList expects.
  * @property {Object[]} props.watched - An array containing multiple movie objects.
  * @property {Function} props.onDeleteWatched - Function to execute when a movie is deleted.
  *
- * This component serves as a container for the WatchedMovie components.
- * It maps through the `watched` array and passes each movie object to an individual WatchedMovie component.
+ * This component serves as a container for the WatchedItem components.
+ * It maps through the `watched` array and passes each movie object to an individual WatchedItem component.
  */
 
-interface WatchedMoviesProps {
+interface WatchedListProps {
   watched: SingleMovie[]
   onDeleteWatched: (imdbID: string) => void
 }
 
-export default function WatchedMovies({
+export default function WatchedListMovies({
   watched,
   onDeleteWatched,
-}: WatchedMoviesProps) {
+}: WatchedListProps) {
   return (
     <UnorderedList>
       {watched.map((movie) => (
-        <WatchedMovie
+        <WatchedItem
           movie={movie}
           key={movie.imdbID}
           onDeleteWatched={onDeleteWatched}
