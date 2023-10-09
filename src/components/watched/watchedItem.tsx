@@ -1,18 +1,18 @@
-import Image from "next/image"
+import Image from "next/image";
 
-import Button from "@components/core/button"
-import { Placeholder } from "@styles/baseElements.styled"
-import { SingleMovie } from "@typings/globalTypes"
+import Button from "@components/core/button";
+import { Placeholder } from "@styles/baseElements.styled";
+import { SingleMovie } from "@typings/globalTypes";
 
 import {
   StyledListItem,
   StyledListItemContainer,
   StyledListItemHeading,
   StyledListItemParagraph,
-} from "."
+} from ".";
 
 /**
- * WatchedMovie Component
+ * WatchedItem Component
  *
  * @param movie - Contains information about a single movie.
  * @param onDeleteWatched - Function to execute when a movie is deleted.
@@ -21,16 +21,16 @@ import {
  * If the movie lacks a poster, a default image is displayed.
  */
 
-interface WatchedMovieProps {
-  movie: SingleMovie
-  onDeleteWatched: (imdbID: string) => void
+interface WatchedItemProps {
+  movie: SingleMovie;
+  onDeleteWatched: (imdbID: string) => void;
 }
 
 export default function WatchedMovie({
   movie,
   onDeleteWatched,
-}: WatchedMovieProps) {
-  const { Title, Poster, imdbRating, Runtime, imdbID, UserRating } = movie
+}: WatchedItemProps) {
+  const { Title, Poster, imdbRating, Runtime, imdbID, UserRating } = movie;
 
   return (
     <StyledListItem>
@@ -65,5 +65,5 @@ export default function WatchedMovie({
         </Button>
       </StyledListItemContainer>
     </StyledListItem>
-  )
+  );
 }
