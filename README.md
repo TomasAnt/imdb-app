@@ -36,9 +36,8 @@ Popcorn is a movie database application that allows users to discover movies, se
 Clone this repository and install the dependencies.
 
 \`\`\`bash
-git clone https://github.com/yourusername/popcorn.git
 cd popcorn
-npm install
+yarn install
 \`\`\`
 
 ## Usage
@@ -46,10 +45,10 @@ npm install
 Start the development server:
 
 \`\`\`bash
-npm run dev
+yarn run dev
 \`\`\`
 
-Navigate to \`http://localhost:3000/\` to see the app running.
+Navigate to \`http://localhost:3000/` to see the app running.
 
 ## API
 
@@ -71,14 +70,6 @@ The main \`MoviesDatabase\` component uses the following hooks and components:
 - \`ErrorMessage\`: Displays an error message if data fetching fails.
 - \`WatchedSummary\`: Displays summary info about watched movies.
 - \`WatchedMovies\`: Displays the list of watched movies.
-
-## Contributing
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute to this project.
-
-## License
-
-This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md) for more details.
 
 
 
