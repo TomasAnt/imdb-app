@@ -46,26 +46,5 @@ yarn run dev
 
 Navigate to \`http://localhost:3000/` to see the app running.
 
-## API
-
-The main \`MoviesDatabase\` component uses the following hooks and components:
-
-### Hooks
-
-- \`useDebounce\`: Debounces the search query to minimize API calls.
-- \`useGetMovies\`: Fetches movies based on the debounced search query.
-
-### Components
-
-- \`Navbar\`: Contains the Search and NumResults components.
-- \`Search\`: Allows you to input a movie search query.
-- \`NumResults\`: Displays the number of results based on the search query.
-- \`Movies\`: Displays the list of fetched movies.
-- \`MovieDetails\`: Displays details of a selected movie.
-- \`Loader\`: Displays a loader while fetching data.
-- \`ErrorMessage\`: Displays an error message if data fetching fails.
-- \`WatchedSummary\`: Displays summary info about watched movies.
-- \`WatchedMovies\`: Displays the list of watched movies.
-
 
 
