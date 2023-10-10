@@ -1,4 +1,4 @@
-import WatchedItem from "@components/watched/watchedItem"
+import WatchedItem from "@components/features/watched/watchedItem"
 import { UnorderedList } from "@styles/baseElements.styled"
 import { SingleMovie } from "@typings/globalTypes"
 

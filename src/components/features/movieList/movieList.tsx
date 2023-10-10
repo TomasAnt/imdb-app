@@ -1,4 +1,4 @@
-import MovieItem from "@components/movieList/movieItem"
+import MovieItem from "@components/features/movieList/movieItem"
 import { UnorderedList } from "@styles/baseElements.styled"
 import { SingleMovie } from "@typings/globalTypes"
 

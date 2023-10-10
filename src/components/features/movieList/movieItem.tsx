@@ -1,14 +1,14 @@
-import Image from "next/image";
+import Image from "next/image"
 
-import { Placeholder } from "@styles/baseElements.styled";
-import { SingleMovie } from "@typings/globalTypes";
+import { Placeholder } from "@styles/baseElements.styled"
+import { SingleMovie } from "@typings/globalTypes"
 
 import {
   StyledListItem,
   StyledListItemContainer,
   StyledListItemHeading,
   StyledListItemParagraph,
-} from ".";
+} from "."
 
 /**
  * Movie Component
@@ -21,12 +21,12 @@ import {
  */
 
 interface MovieItemProps {
-  movie: SingleMovie;
-  onSelectMovie: (imdbID: string) => void;
+  movie: SingleMovie
+  onSelectMovie: (imdbID: string) => void
 }
 
 export default function MovieItem({ movie, onSelectMovie }: MovieItemProps) {
-  const { Title, Year, Poster, imdbID } = movie;
+  const { Title, Year, Poster, imdbID } = movie
 
   return (
     <StyledListItem onClick={() => onSelectMovie(imdbID)}>
@@ -49,5 +49,5 @@ export default function MovieItem({ movie, onSelectMovie }: MovieItemProps) {
         </StyledListItemParagraph>
       </StyledListItemContainer>
     </StyledListItem>
-  );
+  )
 }
