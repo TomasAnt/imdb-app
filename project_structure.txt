@@ -1,0 +1,111 @@
+.
+├── README.md
+├── next-env.d.ts
+├── next-i18next.config.js
+├── next.config.js
+├── package.json
+├── project_structure.txt
+├── public
+│   └── locales
+│       ├── en
+│       │   └── common.json
+│       └── lt
+│           └── common.json
+├── src
+│   ├── assets
+│   │   └── icons
+│   │       ├── empty-star.svg
+│   │       └── full-star.svg
+│   ├── components
+│   │   ├── core
+│   │   │   ├── box
+│   │   │   │   ├── box.styled.ts
+│   │   │   │   ├── box.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── button
+│   │   │   │   ├── button.styled.ts
+│   │   │   │   ├── button.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── errorMessage
+│   │   │   │   ├── errorMessage.styled.ts
+│   │   │   │   ├── errorMessage.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── icon
+│   │   │   │   ├── icon.styled.ts
+│   │   │   │   ├── icon.tsx
+│   │   │   │   └── index.ts
+│   │   │   ├── loader
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── loader.styled.ts
+│   │   │   │   └── loader.tsx
+│   │   │   ├── logo
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── logo.styled.ts
+│   │   │   │   └── logo.tsx
+│   │   │   ├── numResults
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── numResults.styled.ts
+│   │   │   │   └── numResults.tsx
+│   │   │   ├── search
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── search.styled.ts
+│   │   │   │   └── search.tsx
+│   │   │   └── starRating
+│   │   │       ├── index.ts
+│   │   │       ├── star
+│   │   │       ├── starRating.styled.ts
+│   │   │       └── starRating.tsx
+│   │   ├── layout
+│   │   │   └── navbar
+│   │   │       ├── index.ts
+│   │   │       ├── navbar.styled.ts
+│   │   │       └── navbar.tsx
+│   │   ├── movie
+│   │   │   ├── index.ts
+│   │   │   ├── movieDetails.styled.ts
+│   │   │   ├── movieDetails.tsx
+│   │   │   ├── movieOverview.styled.ts
+│   │   │   └── movieOverview.tsx
+│   │   ├── movieList
+│   │   │   ├── index.ts
+│   │   │   ├── movieItem.styled.ts
+│   │   │   ├── movieItem.tsx
+│   │   │   └── movieList.tsx
+│   │   ├── screens
+│   │   │   └── moviesDatabase
+│   │   │       ├── index.ts
+│   │   │       └── moviesDatabase.tsx
+│   │   └── watched
+│   │       ├── index.ts
+│   │       ├── watchedItem.styled.ts
+│   │       ├── watchedItem.tsx
+│   │       ├── watchedList.tsx
+│   │       ├── watchedSummary.styled.ts
+│   │       └── watchedSummary.tsx
+│   ├── hooks
+│   │   ├── useDebounce.ts
+│   │   ├── useGetMovieDetails.ts
+│   │   └── useGetMovies.ts
+│   ├── pages
+│   │   ├── _app.tsx
+│   │   ├── _document.tsx
+│   │   ├── api
+│   │   │   ├── getMovieDetails.ts
+│   │   │   ├── getMovies.ts
+│   │   │   └── imageProxy.ts
+│   │   └── index.tsx
+│   ├── styles
+│   │   ├── baseElements.styled.ts
+│   │   ├── designVariables.ts
+│   │   ├── globalStyles.ts
+│   │   ├── styledComponents.d.ts
+│   │   └── systemDesign.ts
+│   ├── typings
+│   │   └── globalTypes.ts
+│   └── utils
+│       ├── helpers.ts
+│       └── mockData.ts
+├── tsconfig.json
+└── yarn.lock
+
+33 directories, 76 files

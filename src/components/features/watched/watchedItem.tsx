@@ -1,15 +1,15 @@
-import Image from "next/image";
+import Image from "next/image"
 
-import Button from "@components/core/button";
-import { Placeholder } from "@styles/baseElements.styled";
-import { SingleMovie } from "@typings/globalTypes";
+import Button from "@components/core/button"
+import { Placeholder } from "@styles/baseElements.styled"
+import { SingleMovie } from "@typings/globalTypes"
 
 import {
   StyledListItem,
   StyledListItemContainer,
   StyledListItemHeading,
   StyledListItemParagraph,
-} from ".";
+} from "."
 
 /**
  * WatchedItem Component
@@ -22,15 +22,15 @@ import {
  */
 
 interface WatchedItemProps {
-  movie: SingleMovie;
-  onDeleteWatched: (imdbID: string) => void;
+  movie: SingleMovie
+  onDeleteWatched: (imdbID: string) => void
 }
 
 export default function WatchedMovie({
   movie,
   onDeleteWatched,
 }: WatchedItemProps) {
-  const { Title, Poster, imdbRating, Runtime, imdbID, UserRating } = movie;
+  const { Title, Poster, imdbRating, Runtime, imdbID, UserRating } = movie
 
   return (
     <StyledListItem>
@@ -65,5 +65,5 @@ export default function WatchedMovie({
         </Button>
       </StyledListItemContainer>
     </StyledListItem>
-  );
+  )
 }
