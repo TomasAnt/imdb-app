@@ -45,6 +45,7 @@ export default function MovieDetails({
   const [userRating, setUserRating] = useState<number>(0)
   const { movie, isLoading } = useGetMovieDetails(selectedId)
 
+  // Changes the document title to the movie's title when the movie is selected.
   useEffect(() => {
     if (!movie) return
     document.title = `Movie | ${movie?.Title}`
@@ -53,6 +54,20 @@ export default function MovieDetails({
       document.title = "Popcorn - Movie database"
     }
   }, [movie])
+
+  // Allows user to close the movie details by pressing the ESC key.
+  useEffect(() => {
+    const callback = (e: KeyboardEvent) => {
+      if (e.code === "Escape") {
+        onCloseMovie()
+      }
+    }
+    document.addEventListener("keydown", callback)
+
+    return () => {
+      document.removeEventListener("keydown", callback)
+    }
+  }, [onCloseMovie])
 
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId)
   const watchedUserRating = watched.find(
