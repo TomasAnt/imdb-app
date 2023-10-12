@@ -56,7 +56,7 @@ import { tempWatchedData } from "@utils/mockData"
 const WATCHED_MOVIES_KEY = "watched_movies"
 
 export default function MoviesDatabase() {
-  const [query, setQuery] = useState("Batman")
+  const [query, setQuery] = useState("")
   const [selectedId, setSelectedId] = useState<string | null>("")
   const [watched, setWatched] = useState(tempWatchedData)
 
