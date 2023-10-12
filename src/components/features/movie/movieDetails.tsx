@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import Image from "next/image"
 
@@ -43,7 +43,17 @@ export default function MovieDetails({
   watched,
 }: MovieDetailsProps) {
   const [userRating, setUserRating] = useState<number>(0)
+  const [ratingsArray, setRatingsArray] = useState<number[]>([])
   const { movie, isLoading } = useGetMovieDetails(selectedId)
+
+  const countRef = useRef(0)
+
+  useEffect(() => {
+    if (userRating) {
+      countRef.current = countRef.current + 1
+      setRatingsArray((prevArray) => [...prevArray, userRating])
+    }
+  }, [userRating])
 
   // Changes the document title to the movie's title when the movie is selected.
   useEffect(() => {
@@ -93,6 +103,8 @@ export default function MovieDetails({
       Runtime: Number(Runtime.split(" ")[0]),
       imdbRating: Number(imdbRating),
       UserRating: userRating,
+      CountRatingDecisions: countRef.current,
+      RatingsHistory: ratingsArray,
     }
 
     onAddWatched(newWatchedMovie)
